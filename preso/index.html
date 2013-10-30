@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=1024" />
+        <title>Grunt and Karma Presentation</title>
+        <meta name="author" content="George Maggessy" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+        <link href="css/impress-demo.css" rel="stylesheet" />
+    </head>
+    <body class="impress-not-supported">
+        <div class="fallback-message">
+            <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+            <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+        </div>
+        <div id="impress">
+            <div class="step slide" data-x="0" data-y="-1500">
+                <q>Grunt and Karma</q>
+                <q></q>
+                <p>by George Maggessy</p>
+            </div>
+            <div class="step slide" data-x="1000" data-y="-1500">
+                <q>Grunt - Introduction</q><br/>
+                <p>- JavaScript Task Runner.</p><br/>
+                <p>- Analogous to ANT.</p><br/>
+                <p>- It's just an npm module.</p><br/>
+            </div>
+            <div class="step slide" data-x="2000" data-y="-1500">
+                <q>Grunt - Install</q><br/>
+                <p>- Installing grunt-cli does not install the Grunt task runner.</p><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>npm install –g grunt-cli</i><br/><br/>
+                <p>- Grunt CLI only runs the version of Grunt which has been installed next to a Gruntfile. This allows multiple versions of Grunt to be installed on the same machine simultaneously.</p><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>npm install grunt --save-dev</i><br/><br/>
+            </div>
+            <div class="step slide" data-x="3000" data-y="-1500">
+                <q>Grunt</q><br/>
+                <p><strong>package.json:</strong> Used by npm to store metadata for. You will list grunt and the Grunt plugins as devDependencies in this file.</p><br/>
+                <p><strong>Gruntfile.js:</strong> This file is named Gruntfile.js and is used to configure or define tasks and load Grunt plugins.</p><br/>
+            </div>
+            <div class="step slide" data-x="4000" data-y="-1500">
+                <q>Grunt Demo</q>
+            </div>
+        </div>
+        <script>
+        if ("ontouchstart" in document.documentElement) { 
+            document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+        }
+        </script>
+        <script src="js/impress.js"></script>
+        <script>impress().init();</script>
+    </body>
+</html>
