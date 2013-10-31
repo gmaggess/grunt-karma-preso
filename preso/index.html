@@ -1,96 +1,173 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=1024" />
-        <title>Grunt and Karma Presentation</title>
-        <meta name="author" content="George Maggessy" />
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
-        <link href="css/impress-demo.css" rel="stylesheet" />
-    </head>
-    <body class="impress-not-supported">
-        <div class="fallback-message">
-            <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
-            <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-        </div>
-        <div id="impress">
-            <div class="step slide" data-x="0" data-y="-1500">
-                <q>Grunt and Karma</q>
-                <q></q>
-                <p>by George Maggessy</p>
-            </div>
-            <div class="step slide" data-x="1000" data-y="-1500">
-                <table style="width: 750px;">
-                    <tr>
-                        <td>
-                            <q>Grunt</q><br/>
-                            <p>- JavaScript Task Runner.</p><br/>
-                            <p>- Analogous to ANT.</p><br/>
-                        </td>
-                        <td align="right" valign="bottom">
-                            <img src="img/grunt-logo.png" height="180" width="160" pa/>
-                        </td>
-                    </tr>
-                </table>
-                <p>- Powered by NodeJS. That is, it's just an npm module.</p><br/>
-                <p>- Browser and platform agnostic, minify CSS, process SASS, optimize images, run tests...</p><br/>
-                <p>- Who uses it?! Adobe, Twitter, Google, jQuery, and us!</p><br/>
-            </div>
-            <div class="step slide" data-x="2000" data-y="-1500">
-                <q>Grunt Downloads</q><br/>
-                <img src="img/grunt-download.png" alt="Source: http://npm-stat.vorb.de/charts.html?package=grunt" height="400" width="800"/>
-            </div>
-            <div class="step slide" data-x="3000" data-y="-1500">
-                <q>Getting Started</q><br/>
-                <table>
-                    <tr>
-                        <td>
-                            <p>Download NodeJS from http://nodejs.org/</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <img src="img/node-install.png" height="128" width="587"/>
-                        </td>
-                    </tr>
-                    <tr><td>&nbsp;</td></tr>
-                    <tr>
-                        <td>
-                            <p>Installing Grunt...</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <img src="img/grunt-install.png" height="147" width="586"/>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="step slide" data-x="4000" data-y="-1500">
-                <q>Grunt Files</q><br/>
-                <p><strong>package.json:</strong> Used by npm to store metadata for. You will list grunt and the Grunt plugins as devDependencies in this file.</p><br/>
-                <p><strong>Gruntfile.js:</strong> This file is named Gruntfile.js and is used to configure or define tasks and load Grunt plugins.</p><br/>
-            </div>
-            <div class="step slide" data-x="5000" data-y="-1500">
-                <q>Grunt Plugins</q><br/>
-                <table width="800px">
-                    <tr>
-                        <td align="center">
-                            <img src="img/grunt-plugins.png" height="400" width="552"/>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="step slide" data-x="6000" data-y="-1500">
-                <q>Grunt Demo</q>
-            </div>
-        </div>
-        <script>
-        if ("ontouchstart" in document.documentElement) { 
-            document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-        }
-        </script>
-        <script src="js/impress.js"></script>
-        <script>impress().init();</script>
-    </body>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=1024"/>
+    <title>Grunt and Karma Presentation</title>
+    <meta name="author" content="George Maggessy"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
+          rel="stylesheet"/>
+    <link href="css/impress-demo.css" rel="stylesheet"/>
+</head>
+<body class="impress-not-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+        version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<div id="impress">
+    <div class="step slide" data-x="0" data-y="-1500">
+        <q><p>Grunt and Karma</p>
+        <i>Automation is King!</i></q>
+        <q></q>
+        <p>by George Maggessy</p>
+    </div>
+    <div class="step slide" data-x="1000" data-y="-1500">
+        <table style="width: 800px;">
+            <tr>
+                <td>
+                    <q>Grunt</q><br/>
+                    <p>- JavaScript Task Runner.</p><br/>
+                    <p>- Analogous to ANT.</p><br/>
+                </td>
+                <td align="right" valign="bottom">
+                    <img src="img/grunt-logo.png" height="180" width="160"/>
+                </td>
+            </tr>
+        </table>
+        <p>- Powered by NodeJS. That is, it's just an npm module.</p><br/>
+        <p>- Browser and platform agnostic, minify CSS, process SASS, optimize images, run tests...</p><br/>
+        <p>- Who uses it?! Adobe, Twitter, Google, jQuery, and us!</p><br/>
+    </div>
+    <div class="step slide" data-x="2000" data-y="-1500">
+        <q>Grunt Downloads</q><br/>
+        <img src="img/grunt-download.png" alt="Source: http://npm-stat.vorb.de/charts.html?package=grunt" height="313"
+             width="800"/>
+    </div>
+    <div class="step slide" data-x="3000" data-y="-1500">
+        <q>Getting Started</q><br/>
+        <table>
+            <tr>
+                <td>
+                    <p>Download NodeJS from http://nodejs.org/</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <img src="img/node-install.png" height="128" width="587"/>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Installing Grunt...</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <img src="img/grunt-install.png" height="147" width="586"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="step slide" data-x="4000" data-y="-1500">
+        <q>Grunt Files</q><br/>
+        <p><strong>package.json:</strong> Used by npm to store metadata for. You will list grunt and the Grunt plugins
+            as devDependencies in this file.</p><br/>
+        <p><strong>Gruntfile.js:</strong> This file is named Gruntfile.js and is used to configure or define tasks and
+            load Grunt plugins.</p><br/>
+    </div>
+    <div class="step slide" data-x="5000" data-y="-1500">
+        <q>Grunt Plugins</q><br/>
+        <table width="800px">
+            <tr>
+                <td align="center">
+                    <img src="img/grunt-plugins.png" height="400" width="552"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="step slide" data-x="6000" data-y="-1500">
+        <q>Grunt Demo</q>
+    </div>
+    <!-- KARMA -->
+    <div class="step slide" data-x="7000" data-y="-1500">
+        <table style="width: 750px;">
+            <tr>
+                <td>
+                    <q>Karma</q><br/>
+
+                </td>
+                <td align="right" valign="bottom">
+                    <img src="img/karma-logo.png" height="81" width="373"/>
+                </td>
+            </tr>
+        </table>
+        <p>- JavaScript Test Runner.</p><br/>
+        <p>- Powered by NodeJS. That is, it's just an npm module.</p><br/>
+        <p>- Some JS frameworks do DOM manipulation and to test that you need real browsers.</p><br/>
+        <p>- It's testing framework agnostic. You can use Mocha, Jasmine, QUnit or anything else.</p><br/>
+        <p>- During development, you want to run your tests at every save.</p><br/>
+    </div>
+    <div class="step slide" data-x="8000" data-y="-1500">
+        <q>Karma Downloads</q><br/>
+        <img src="img/karma-download.png" alt="Source: http://npm-stat.vorb.de/charts.html?package=karma" height="308"
+             width="800"/>
+    </div>
+    <div class="step slide" data-x="9000" data-y="-1500">
+        <q>Getting Started</q><br/>
+        <table>
+            <tr>
+                <td>
+                    <p>Installing Karma...</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" valign="bottom">
+                    <br><img src="img/karma-install.png" height="61" width="585"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="step slide" data-x="10000" data-y="-1500">
+        <q>Karma Files</q><br/>
+        <p>- <strong>karma.conf.js</strong> - Karma configuration file.</p><br/>
+        <p>- Can be created through the command '<i>karma init</i>'.</p><br/>
+        <p>... or copied from https://github.com/karma-runner/karma.</p>
+    </div>
+    <div class="step slide" data-x="11000" data-y="-1500">
+        <q>Karma Demo</q><br/>
+    </div>
+    <div class="step slide" data-x="12000" data-y="-1500">
+        <q>Karma Debug</q><br/>
+        <table width="750px">
+            <tr>
+                <td align="center">
+                    <p>http://localhost:9876/debug.html</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="step slide" data-x="13000" data-y="-1500">
+        <q>Grunt + Karma</q><br/>
+        <table width="750px">
+            <tr>
+                <td align="center" valign="bottom">
+                    <br><img src="img/karma-grunt.png" height="137" width="254"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    if ("ontouchstart" in document.documentElement) {
+        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+    }
+</script>
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+</body>
 </html>
