@@ -1,11 +1,11 @@
 {
-    "name": "Grunt and Karma Brown Bag Sesion",
-    "author": "George Maggessy",
-    "version": "0.0.0",
-    "dependencies": {
+  "name": "grunt-karma-demo",
+  "author": "George Maggessy",
+  "version": "0.0.0",
+  "dependencies": {
 
-    },
-    "devDependencies": {
-        
-    }
+  },
+  "devDependencies": {
+      
+  }
 }
