@@ -1,7 +1,5 @@
 'use strict';
 
-var livereload = require('grunt-contrib-livereload/lib/utils');
-
 module.exports = function(grunt) {
     var appConfig = {
         main: 'src/main',
@@ -90,7 +88,7 @@ module.exports = function(grunt) {
               base: '<%= app.dist %>',
               middleware: function(connect, options) {
                 return [
-                  livereload.livereloadSnippet,
+                  require('grunt-contrib-livereload/lib/utils').livereloadSnippet,
                   connect.static(options.base)
                 ];
               }            
