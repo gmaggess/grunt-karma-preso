@@ -100,6 +100,12 @@ module.exports = function(grunt) {
             path: 'http://localhost:3001'
           }
         },
+        karma: {
+          unit: {
+            configFile: 'karma.conf.js',
+            singleRun: false
+          }
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -111,11 +117,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-livereload');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-open');
-  
-    // Default task (includes format checking)
-    grunt.registerTask('default', ['uglify']);
-    grunt.registerTask('build', ['clean', 'uglify:demo', 'cssmin', 'copy:main']);
-    grunt.registerTask('server', ['build', 'connect', 'open', 'watch']);
+    grunt.loadNpmTasks("grunt-karma");
 
+    // Default task (includes format checking)
+    grunt.registerTask('default', ['uglify', 'jshint']);
+    grunt.registerTask('build', ['clean', 'uglify:demo', 'cssmin', 'copy:main', 'karma']);
+    grunt.registerTask('test', ['karma:unit']);
+    grunt.registerTask('server', ['build', 'connect', 'open', 'watch']);
 
 };

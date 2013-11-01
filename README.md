@@ -2,6 +2,17 @@
 
 ##Grunt
 
+__WHAT IS GRUNT?__
+
+"Built on top of Node.js, Grunt is a task-based command-line tool that speeds up workflows by reducing the effort required to prepare assets for production. It does this by wrapping up jobs into tasks that are compiled automatically as you go along. Basically, you can use Grunt on most tasks that you consider to be grunt work and would normally have to manually configure and run yourself.
+While earlier versions came bundled with plugins like JSHint and Uglyify, the most recent release (version 0.4) relies on plugins for everything.
+What kind of tasks? Well, the list is exhaustive. Suffice it to say, Grunt can handle most things you throw at it, from minifying to concatenating JavaScript. It can also be used for a range of tasks unrelated to JavaScript, such as compiling CSS from LESS and Sass. We’ve even used it with blink(1) to notify us when a build fails." (_Source: Smashing Magazine_)
+
+__WHY USE GRUNT?__
+
+"One of the best things about Grunt is the consistency it brings to teams. If you work collaboratively, you’ll know how frustrating inconsistency in the code can be. Grunt enables teams to work with a unified set of commands, thus ensuring that everyone on the team is writing code to the same standard. After all, nothing is more frustrating than a build that fails because of little inconsistencies in how a team of developers writes code.
+Grunt also has an incredibly active community of developers, with new plugins being released regularly. The barrier to entry is relatively low because a vast range of tools and automated tasks are already available to use." (_Source: Smashing Magazine_)
+
 ###Step 1. Install Grunt locally
 
 ```
@@ -156,6 +167,7 @@ Then add the code below to Grunt:
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
 
+  grunt.registerTask('default', ['uglify', 'jshint']);
   grunt.registerTask('build', ['clean', 'uglify:demo', 'cssmin', 'copy:main']);
   grunt.registerTask('server', ['build', 'connect', 'open', 'watch']);
   ...
@@ -183,3 +195,70 @@ eval "$(grunt --completion=bash)"
 This assumes that Grunt has been installed globally with npm install -g grunt. Currently, the only supported shell is bash.
 
 ##Karma
+
+###Step 1. Install Karma
+
+```
+sudo npm install -g karma
+```
+
+###Step 2. Create simple tests
+For this demo we'll use [Jasmine](http://pivotal.github.com/jasmine/) as our testing framework, but you could use QUnit or any other framework as long as there's an adapter for Karma. 
+
+Let's quickly build a Jasmine test. Let's suppose we'll write a new Model function:
+
+```javascript
+function todo() {
+    return "Hello world!";
+}
+``` 
+
+And for that function, we'll write a test. Forgive me for the simple examples, but the idea is to demo Karma and not Jasmine. :)
+
+```javascript
+describe("Todo Model", function() {
+    it("says hello", function() {
+        expect(helloWorld()).toEqual("Hello world!");
+    });
+});
+```
+
+###Step 3. Create Karma Configuration File
+
+```
+karma init
+```
+
+###Step 4. Run Karma
+
+```
+karma start
+```
+
+###Step 5. Add the Karma configuration to Grunt
+
+Now we'll add the Karma plugin to Grunt.
+
+```
+npm install grunt-karma --save-dev
+```
+
+```
+...
+karma: {
+  auto: {
+    configFile: 'karma.conf.js',
+    singleRun: false
+  }
+}
+...
+grunt.loadNpmTasks("grunt-karma");
+...
+```
+
+###Step 6. Run Karma from Grunt
+
+```
+grunt.registerTask('test', ['karma:unit']);
+```
+

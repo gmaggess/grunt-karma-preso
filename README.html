@@ -1,0 +1,296 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>README</title></head><body><h1 id="grunt-and-karma-brown-bag-session">Grunt and Karma Brown Bag Session</h1>
+<h2 id="grunt">Grunt</h2>
+<p><strong>WHAT IS GRUNT?</strong></p>
+<p>"Built on top of Node.js, Grunt is a task-based command-line tool that speeds up workflows by reducing the effort required to prepare assets for production. It does this by wrapping up jobs into tasks that are compiled automatically as you go along. Basically, you can use Grunt on most tasks that you consider to be grunt work and would normally have to manually configure and run yourself.
+While earlier versions came bundled with plugins like JSHint and Uglyify, the most recent release (version 0.4) relies on plugins for everything.
+What kind of tasks? Well, the list is exhaustive. Suffice it to say, Grunt can handle most things you throw at it, from minifying to concatenating JavaScript. It can also be used for a range of tasks unrelated to JavaScript, such as compiling CSS from LESS and Sass. We’ve even used it with blink(1) to notify us when a build fails." (<em>Source: Smashing Magazine</em>)</p>
+<p><strong>WHY USE GRUNT?</strong></p>
+<p>"One of the best things about Grunt is the consistency it brings to teams. If you work collaboratively, you’ll know how frustrating inconsistency in the code can be. Grunt enables teams to work with a unified set of commands, thus ensuring that everyone on the team is writing code to the same standard. After all, nothing is more frustrating than a build that fails because of little inconsistencies in how a team of developers writes code.
+Grunt also has an incredibly active community of developers, with new plugins being released regularly. The barrier to entry is relatively low because a vast range of tools and automated tasks are already available to use." (<em>Source: Smashing Magazine</em>)</p>
+<h3 id="step-1-install-grunt-locally">Step 1. Install Grunt locally</h3>
+<pre><code>npm install grunt --save-dev
+</code></pre>
+
+<p>Show that grunt gets added to <em>package.json</em>.</p>
+<h3 id="step-2-basic-concepts">Step 2. Basic Concepts</h3>
+<p>Open the browser and show where you can look for plugins: http://gruntjs.com/plugins. Show the plugin details such as install command and down the page how to use it.</p>
+<pre><code>npm install grunt-contrib-uglify --save-dev
+</code></pre>
+
+<p>Before configuring uglify, add some basic config:</p>
+<pre><code class="javascript">    var appConfig = {
+        main: 'src/main',
+        test: 'src/test',
+        dist: 'dist',
+        comp: 'bower_components',
+    };
+    ...
+        app: appConfig,
+        uglify: {
+            demo: {
+                options: {
+                    mangle: false,
+                    compress: true,
+                    preserveComments: true
+                },
+                files: {
+                    '&lt;%= app.dist %&gt;/scripts/&lt;%= pkg.name %&gt;.min.js': ['&lt;%= app.comp %&gt;/todomvc-common/base.js', '&lt;%= app.comp %&gt;/knockout.js/knockout.js', '&lt;%= app.comp %&gt;/director/build/director.js', '&lt;%= app.main %&gt;/scripts/*.js', ]
+                }
+            }
+        },
+    ...
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    // Default task (includes format checking)
+    grunt.registerTask('default', ['uglify']);
+</code></pre>
+
+<h3 id="step-3-configure-other-plugins">Step 3. Configure other plugins</h3>
+<ol>
+<li>grunt-contrib-jshint - Code Quality Tool.</li>
+<li>grunt-contrib-clean - Deletes files / directories.</li>
+<li>grunt-contrib-copy - Copy files.</li>
+<li>grunt-contrib-cssmin - Minifies css.</li>
+<li>grunt-contrib-watch - Run predefined tasks whenever watched file patterns are added, changed or deleted.</li>
+<li>grunt-contrib-livereload - Does the same thing as watch, but in this case help us do the livereload with the browser.</li>
+<li>grunt-contrib-connect - Start a static web server.</li>
+<li>grunt-open - Open urls and files from a grunt task.</li>
+</ol>
+<pre><code>npm install grunt-contrib-jshint grunt-contrib-clean grunt-contrib-copy grunt-contrib-cssmin grunt-contrib-watch grunt-contrib-livereload grunt-contrib-connect grunt-open --save-dev
+</code></pre>
+
+<p>Then add the code below to Grunt:</p>
+<pre><code class="javascript">      ...    
+      jshint: {
+          all: ['&lt;%= app.main %&gt;/scripts/*.js'],
+          options: {
+              curly: true,
+              eqeqeq: true,
+              eqnull: true,
+              browser: true,
+              globals: {
+                  jQuery: true
+              }
+          }
+      },
+      clean: {
+          build: {
+              src: ['&lt;%= app.dist %&gt;'],
+              options: {
+                  force: true
+              }
+          }
+      },
+      copy: {
+          main: {
+              files: [{
+                  expand: true,
+                  cwd: '&lt;%= app.main %&gt;',
+                  src: [
+                      '*.html'
+                  ],
+                  dest: '&lt;%= app.dist %&gt;'
+              }]
+          }
+      },
+      cssmin: {
+          compress: {
+              files: {
+                  '&lt;%= app.dist %&gt;/resources/css/base.css': ['&lt;%= app.comp %&gt;/todomvc-common/base.css']
+              }
+          }
+      },
+      watch: {
+          options: {
+              livereload: 35729,
+              nospawn: true
+          },
+          html: {
+              files: '&lt;%= app.main %&gt;/*.html',
+              tasks: ['copy:main']
+          },
+          scripts: {
+              files: '&lt;%= app.main %&gt;/scripts/*.js',
+              tasks: ['uglify:demo', 'jshint']
+          },
+          css: {
+              files: '&lt;%= app.dist %&gt;/resources/css/*.css',
+              tasks: ['cssmin']
+          }
+      },
+      connect: {
+        server: {
+          options: {
+            hostname: '*',
+            port: 3001,
+            base: '&lt;%= app.dist %&gt;',
+            middleware: function(connect, options) {
+              return [
+                require('grunt-contrib-livereload/lib/utils').livereloadSnippet,
+                connect.static(options.base)
+              ];
+            }            
+          }
+        }
+      },
+      open: {
+        server: {
+          path: 'http://localhost:3001'
+        }
+      },
+  });
+
+  ...
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-livereload');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-open');
+
+  grunt.registerTask('build', ['clean', 'uglify:demo', 'cssmin', 'copy:main']);
+  grunt.registerTask('server', ['build', 'connect', 'open', 'watch']);
+  ...
+</code></pre>
+
+<p>Show the grunt plugins on <em>package.json</em> as well. Also show the <code>node_modules</code> directory content. Mention that you should <em>not</em> add node_modules to git, since it will be recreated as soon as someone runs <code>npm install</code> on the current directory.</p>
+<h3 id="step-4-development-with-productivity">Step 4. Development with Productivity</h3>
+<p>Run the <code>grunt server</code> and change the <code>index.html</code> file to show the autorefresh feature in the browser.</p>
+<h3 id="step-5-q-a">Step 5. Q &amp; A</h3>
+<p><em>Does Grunt work on Windows?</em></p>
+<p>Grunt works fine on Windows, because Node.js and npm both work fine on Windows. Usually the problematic part is Cygwin, because it bundles an outdated version of Node.js.</p>
+<p><em>How do I enable shell tab auto-completion?</em></p>
+<p>To enable bash tab auto-completion for grunt, add the following line to your ~/.bashrc file:</p>
+<pre><code>eval &quot;$(grunt --completion=bash)&quot;
+</code></pre>
+
+<p>This assumes that Grunt has been installed globally with npm install -g grunt. Currently, the only supported shell is bash.</p>
+<h2 id="karma">Karma</h2>
+<p>For this demo we'll use <a href="http://pivotal.github.com/jasmine/">Jasmine</a> as our testing framework, but you could use QUnit or any other framework as long as there's an adapter for Karma. </p>
+<p>Let's quickly build a Jasmine test. Let's suppose we'll write a new Model function:</p>
+<pre><code class="javascript">
+</code></pre></body></html>
