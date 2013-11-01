@@ -65,7 +65,7 @@ npm install grunt-contrib-jshint grunt-contrib-clean grunt-contrib-copy grunt-co
 
 Then add the code below to Grunt:
 
-```
+```javascript
       ...    
       jshint: {
           all: ['<%= app.main %>/scripts/*.js'],
