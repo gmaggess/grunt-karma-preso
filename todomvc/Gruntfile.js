@@ -1,5 +1,7 @@
 'use strict';
 
+var livereload = require('grunt-contrib-livereload/lib/utils');
+
 module.exports = function(grunt) {
     var appConfig = {
         main: 'src/main',
@@ -19,7 +21,7 @@ module.exports = function(grunt) {
                     preserveComments: true
                 },
                 files: {
-                    '<%= app.dist %>/scripts/<%= pkg.name %>.min.js': ['<%= app.main %>/scripts/*.js']
+                    '<%= app.dist %>/scripts/<%= pkg.name %>.min.js': ['<%= app.comp %>/todomvc-common/base.js', '<%= app.comp %>/knockout.js/knockout.js', '<%= app.comp %>/director/build/director.js', '<%= app.main %>/scripts/*.js', ]
                 }
             }
         },
@@ -80,6 +82,26 @@ module.exports = function(grunt) {
                 tasks: ['cssmin']
             }
         },
+        connect: {
+          server: {
+            options: {
+              hostname: '*',
+              port: 3001,
+              base: '<%= app.dist %>',
+              middleware: function(connect, options) {
+                return [
+                  livereload.livereloadSnippet,
+                  connect.static(options.base)
+                ];
+              }            
+            }
+          }
+        },
+        open: {
+          server: {
+            path: 'http://localhost:3001'
+          }
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -88,10 +110,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
-
+    grunt.loadNpmTasks('grunt-contrib-livereload');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-open');
+  
     // Default task (includes format checking)
     grunt.registerTask('default', ['uglify']);
     grunt.registerTask('build', ['clean', 'uglify:demo', 'cssmin', 'copy:main']);
+    grunt.registerTask('server', ['build', 'connect', 'open', 'watch']);
 
 
 };
