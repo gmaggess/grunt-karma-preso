@@ -66,6 +66,86 @@ npm install grunt-contrib-jshint grunt-contrib-clean grunt-contrib-copy grunt-co
 Then add the code below to Grunt:
 
 ```
+      ...    
+      jshint: {
+          all: ['<%= app.main %>/scripts/*.js'],
+          options: {
+              curly: true,
+              eqeqeq: true,
+              eqnull: true,
+              browser: true,
+              globals: {
+                  jQuery: true
+              }
+          }
+      },
+      clean: {
+          build: {
+              src: ['<%= app.dist %>'],
+              options: {
+                  force: true
+              }
+          }
+      },
+      copy: {
+          main: {
+              files: [{
+                  expand: true,
+                  cwd: '<%= app.main %>',
+                  src: [
+                      '*.html'
+                  ],
+                  dest: '<%= app.dist %>'
+              }]
+          }
+      },
+      cssmin: {
+          compress: {
+              files: {
+                  '<%= app.dist %>/resources/css/base.css': ['<%= app.comp %>/todomvc-common/base.css']
+              }
+          }
+      },
+      watch: {
+          options: {
+              livereload: 35729,
+              nospawn: true
+          },
+          html: {
+              files: '<%= app.main %>/*.html',
+              tasks: ['copy:main']
+          },
+          scripts: {
+              files: '<%= app.main %>/scripts/*.js',
+              tasks: ['uglify:demo', 'jshint']
+          },
+          css: {
+              files: '<%= app.dist %>/resources/css/*.css',
+              tasks: ['cssmin']
+          }
+      },
+      connect: {
+        server: {
+          options: {
+            hostname: '*',
+            port: 3001,
+            base: '<%= app.dist %>',
+            middleware: function(connect, options) {
+              return [
+                require('grunt-contrib-livereload/lib/utils').livereloadSnippet,
+                connect.static(options.base)
+              ];
+            }            
+          }
+        }
+      },
+      open: {
+        server: {
+          path: 'http://localhost:3001'
+        }
+      },
+  });
+
   ...
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
