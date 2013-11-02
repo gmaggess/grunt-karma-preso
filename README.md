@@ -1,4 +1,4 @@
-# Grunt and Karma Brown Bag Session
+# Grunt and Karma Presentation Notes
 
 ##Grunt
 
