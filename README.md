@@ -245,6 +245,25 @@ npm install grunt-karma --save-dev
 
 ```
 ...
+watch: {
+    options: {
+        livereload: 35729,
+        nospawn: true
+    },
+    html: {
+        files: '<%= app.main %>/*.html',
+        tasks: ['copy:main']
+    },
+    scripts: {
+        files: '<%= app.main %>/scripts/*.js',
+        tasks: ['uglify:demo', 'jshint', 'karma:unit']
+    },
+    css: {
+        files: '<%= app.dist %>/resources/css/*.css',
+        tasks: ['cssmin']
+    }
+},
+...
 karma: {
   auto: {
     configFile: 'karma.conf.js',
@@ -259,6 +278,9 @@ grunt.loadNpmTasks("grunt-karma");
 ###Step 6. Run Karma from Grunt
 
 ```
-grunt.registerTask('test', ['karma:unit']);
+    grunt.registerTask('default', ['uglify', 'jshint']);
+    grunt.registerTask('test', ['karma:auto']);
+    grunt.registerTask('build', ['clean', 'uglify:demo', 'cssmin', 'copy:main']);
+    grunt.registerTask('server', ['build', 'connect', 'open', 'watch']);
 ```
 

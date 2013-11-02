@@ -73,7 +73,7 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: '<%= app.main %>/scripts/*.js',
-                tasks: ['uglify:demo', 'jshint']
+                tasks: ['uglify:demo', 'jshint', 'karma:unit']
             },
             css: {
                 files: '<%= app.dist %>/resources/css/*.css',
@@ -103,6 +103,10 @@ module.exports = function(grunt) {
         karma: {
           unit: {
             configFile: 'karma.conf.js',
+            singleRun: true
+          },
+          auto: {
+            configFile: 'karma.conf.js',
             singleRun: false
           }
         }
@@ -121,8 +125,8 @@ module.exports = function(grunt) {
 
     // Default task (includes format checking)
     grunt.registerTask('default', ['uglify', 'jshint']);
-    grunt.registerTask('build', ['clean', 'uglify:demo', 'cssmin', 'copy:main', 'karma']);
-    grunt.registerTask('test', ['karma:unit']);
+    grunt.registerTask('test', ['karma:auto']);
+    grunt.registerTask('build', ['clean', 'uglify:demo', 'cssmin', 'copy:main', 'karma:unit']);
     grunt.registerTask('server', ['build', 'connect', 'open', 'watch']);
 
 };
