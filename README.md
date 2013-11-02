@@ -229,6 +229,8 @@ describe("Todo Model", function() {
 karma init
 ```
 
+Explore configuration file and show that more browsers can be added.
+
 ###Step 4. Run Karma
 
 ```
@@ -283,4 +285,5 @@ grunt.loadNpmTasks("grunt-karma");
     grunt.registerTask('build', ['clean', 'uglify:demo', 'cssmin', 'copy:main']);
     grunt.registerTask('server', ['build', 'connect', 'open', 'watch']);
 ```
+###Step 7. Q & A
 
