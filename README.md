@@ -203,7 +203,7 @@ sudo npm install -g karma
 ```
 
 ###Step 2. Create simple tests
-For this demo we'll use [Jasmine](http://pivotal.github.com/jasmine/) as our testing framework, but you could use QUnit or any other framework as long as there's an adapter for Karma. 
+For this demo we'll use [Jasmine](https://jasmine.github.io/) as our testing framework, but you could use QUnit or any other framework as long as there's an adapter for Karma. 
 
 Let's quickly build a Jasmine test. Let's suppose we'll write a new Model function:
 
